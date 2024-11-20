@@ -47,8 +47,9 @@ class UniformAffineQuantizer(nn.Module):
         self.symmetric = symmetric
         assert 2 <= n_bits <= 16, "bitwidth not supported"
         self.n_bits = n_bits
-        self.qmin = 0
-        self.qmax = 2 ** (n_bits) - 1
+        #### EDITS ########
+        self.qmin = -1 #0
+        self.qmax = 1 #2 ** (n_bits) - 1
         self.per_channel_axes = per_channel_axes
         self.metric = metric
         self.cluster_counts = None
